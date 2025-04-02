@@ -209,6 +209,8 @@ class WhatsAppController {
                 'height':'calc(100% - 120px)'
             });
 
+            this._camera = new CameraController(this.el.videoCamera);
+
         });
 
         this.el.btnClosePanelCamera.on('click', e => {
@@ -353,7 +355,7 @@ class WhatsAppController {
                 frag.appendChild(img);
 
                 range.insertNode(frag);
-                
+
                 range.setStartAfter(img);
 
                 this.el.inputText.dispatchEvent(new Event('keyup'));
