@@ -1,4 +1,7 @@
-class WhatsAppController {
+import {Format} from '../util/Format';
+import {CameraController} from './CameraController';
+
+export class WhatsAppController {
     
     constructor() {
 
@@ -330,8 +333,8 @@ class WhatsAppController {
                 
                 let img = this.el.imgEmojiDefault.cloneNode();
 
-                img.style.cssText = emoji.style.cssText
-                img.dataset.unicode = emoji.dataset.unicode
+                img.style.cssText = emoji.style.cssText;
+                img.dataset.unicode = emoji.dataset.unicode;
                 img.alt = emoji.dataset.unicode;
 
                 emoji.classList.forEach(name => {
@@ -340,7 +343,7 @@ class WhatsAppController {
 
                 let cursor = window.getSelection();
 
-                if (!cursor.focusNode || !cursor.focusNode.id == 'input-text') {
+                if (!cursor.focusNode || cursor.focusNode.id !== 'input-text') {
                     this.el.inputText.focus();
                     cursor = window.getSelection();
                 }

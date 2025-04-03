@@ -1,11 +1,11 @@
-class CameraController {
+export class CameraController {
 
     constructor(videoEl) {
         
         this._videoEl = videoEl;
 
         navigator.mediaDevices.getUserMedia({
-            video: true,
+            video: true
         }).then(stream => {
 
             console.log('Stream', stream);
