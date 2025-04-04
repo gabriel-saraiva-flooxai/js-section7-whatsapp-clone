@@ -404,7 +404,7 @@ export class WhatsAppController {
 
         this.el.inputText.on('keyup', e => {
 
-            if (this.el.inputText.innerHTML.length) {
+            if (this.el.inputText.textContent.length || this.el.inputText.querySelector('img')) {
 
                 this.el.inputPlaceholder.hide();
                 this.el.btnSendMicrophone.hide();
@@ -448,9 +448,10 @@ export class WhatsAppController {
                 });
 
                 let cursor = window.getSelection();
+                let inputText = this.el.inputText;
 
-                if (!cursor.focusNode || cursor.focusNode.id !== 'input-text') {
-                    this.el.inputText.focus();
+                if (!cursor.focusNode || !inputText.contains(cursor.focusNode)) {
+                    inputText.focus();
                     cursor = window.getSelection();
                 }
 
