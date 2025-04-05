@@ -21,14 +21,14 @@ export class Firebase {
 
     init(){
 
-        if (!Window._initializedFirebase) {        
+        if (!window._initializedFirebase) {        
             firebase.initializeApp(this._config);
 
             firebase.firestore().settings({
                 timestampsInSnapshots: true
             });
 
-            Window._initializedFirebase = true;
+            window._initializedFirebase = true;
         }
 
     }
@@ -65,7 +65,7 @@ export class Firebase {
             })
             .catch(err => {
                 f(err);
-            })
+            });
 
         });
 

@@ -59,11 +59,11 @@ export class DocumentPreviewController {
                                     viewport
                                 }).then(() => {
 
-                                    let plur = (pdf.numPages > 1) ? 's' : '';
+                                    let _plur = (pdf.numPages > 1) ? 's' : '';
 
                                     s({
                                         src: canvas.toDataURL('image/png'),
-                                        info: `${pdf.numPages} página${plur}`
+                                        info: `${pdf.numPages} página${_plur}`
                                     });
 
                                 }).catch(err => {

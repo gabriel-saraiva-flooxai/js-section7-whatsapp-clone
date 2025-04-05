@@ -23,14 +23,14 @@ export class User extends Model{
     getById(id){
 
         return new Promise((s, f) => {
-
+            
             User.findByEmail(id).onSnapshot(doc => {
 
                 this.fromJSON(doc.data());
 
                 s(doc);
 
-            });
+            })
 
         });
 
@@ -52,7 +52,7 @@ export class User extends Model{
 
         return User.getRef()
                 .doc(id)
-                .collection('contacts')
+                .collection('contacts');
 
     }
 

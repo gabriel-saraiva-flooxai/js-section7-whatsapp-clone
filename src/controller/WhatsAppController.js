@@ -49,9 +49,9 @@ export class WhatsAppController {
 
             });
 
-            this._user.name = response.user.displayName;
-            this._user.name = response.user.email;
-            this._user.name = response.user.photoURL;
+            this._user.name = response.user.displayName || '';
+            this._user.email = response.user.email;
+            this._user.photo = response.user.photoURL || '';
 
             this._user.save().then(() => {
 
